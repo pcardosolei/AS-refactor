@@ -12,8 +12,6 @@ public class ServiceBetAPITest {
         casaApostas.actualizaOdd(evento1, 1, 2, 3);
         Evento evento2 = casaApostas.registaEvento();
         casaApostas.actualizaOdd(evento2,1, 5, 3);
-
-
         Evento evento3 = casaApostas.registaEvento();
         evento3.actualizaOdd(1, 5, 3);
 

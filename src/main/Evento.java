@@ -10,6 +10,10 @@ import java.time.Instant;
 
 public class Evento implements Subject {
 
+        /*
+            Isto não devia estar aqui 
+            Decoupling
+        */
 	public enum Resultado {
 		VITORIA,
 		DERROTA,
@@ -17,7 +21,14 @@ public class Evento implements Subject {
 	}
 
 	private static AtomicInteger uniqueId=new AtomicInteger();
-
+        /*
+          VECTOR é uma classe obsoleta
+          BufferedReader e PrintStream não utilizados
+          AtomicInteger não é necessário para os id se trabalharmos sobre a forma de hashmaps de inteiros 
+            para controlar todos os eventos.
+          Id pode ser removido pela ideia anterior.
+        Nota: o isOpen nunca fica diferente de false.
+        */
 	private String equipa1;
 	private String equipa2;
 	private Resultado resultado_final;
@@ -29,6 +40,9 @@ public class Evento implements Subject {
 	private boolean isOpen;
 	private Odd odds;
 
+        /*
+         Remover bufferedReader + this.out
+        */
 	public Evento(String equipa1, String equipa2, Date data) {
 		this.equipa1 = equipa1;
 		this.equipa2 = equipa2;
@@ -42,7 +56,12 @@ public class Evento implements Subject {
 		this.in = new BufferedReader(new InputStreamReader(System.in));
 		this.out = System.out;
 	}
-
+        
+        /* 
+        Mesmo do anterior mas entender pq é que necessários dois construtores.
+        se remover o de baixo é remover os sets e os gets.
+        */
+        
 	public Evento() {
 		this.equipa1 = null;
 		this.equipa2 = null;
@@ -72,7 +91,11 @@ public class Evento implements Subject {
 	public void setDataEvento(Date dataEvento) {
 		this.dataEvento = dataEvento;
 	}
-
+        /*
+            perguntar ao andre se a classe resultado faz algum sentido. 
+        
+            não é 
+        */
 	public boolean fechaEvento(char resultadofinal){
 
 			switch (resultadofinal) {
@@ -90,7 +113,11 @@ public class Evento implements Subject {
 		this.notifyApostadores();
 		return true;
 	}
-
+        
+        /*
+         METHODS CHAINING- VEIO DA API Para vir buscar a view e registar a aposta 
+        
+        */
 	public void registaAposta(Apostador apostador) {
 
 		Aposta aposta = new Aposta();
@@ -101,19 +128,34 @@ public class Evento implements Subject {
 		this.listaApostas.add(aposta);
 
 	}
-
+        /*
+         actualizaOdd e updateOdds utilizam o mesmo codigo para fazer a mesma coisa 
+            com a diferença do tipo retornado
+        */
 	public boolean actualizaOdd(int odd1, int oddx, int odd2 ){
 		this.odds.setOddx(oddx);
 		this.odds.setOdd1(odd1);
 		this.odds.setOdd2(odd2);
 		return true;
 	}
+        
+        public void updateOdds(float odd_1, float odd_x, float odd_2){
+                this.odds.setOdd1(odd_1);
+		this.odds.setOdd2(odd_2);
+		this.odds.setOddx(odd_x);
+	}
 
+        
 	public void setEstado(boolean estado) {
 		// TODO - implement Aposta.setEstado
                 this.isOpen = estado;
 	}
-
+        
+        /*
+         METODO MUITO GRANDE 
+         VAI BUSCAR MUITOS METODOS DE OUTRA CLASS
+         REALIZA TAREFAS QUE PODIAM SER REALIZADAS NUMA CAMADA MAIS BAIXA COM MENOS RECURSOS
+        */
 	public void notifyApostadores() {
 		int premio = 0;
 		if (!this.isOpen){
@@ -146,14 +188,12 @@ public class Evento implements Subject {
 		this.odds = new Odd(odd_1,odd_x,odd_2);
 	}
 
-	public void updateOdds(float odd_1, float odd_x, float odd_2){
-	    this.odds.setOdd1(odd_1);
-		this.odds.setOdd2(odd_2);
-		this.odds.setOddx(odd_x);
-	}
-
+	
 	// views Evento
-
+        /*
+            Long Class
+            vistas devem ser utilizadas numa outra camada
+        */
 	public String viewEvento() {
 		return "Evento{" +
 				"equipa1='" + equipa1 + '\'' +
@@ -165,6 +205,10 @@ public class Evento implements Subject {
 				'}';
 	}
 
+        
+        /*
+         viewCreateEvento + viewUpdateEvento teem o mesmo codigo para realizar duas acções diferentes
+        */
 	public void viewCreateEvento(){
 
 		String readinput;

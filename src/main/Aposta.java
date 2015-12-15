@@ -7,7 +7,12 @@ import java.io.PrintStream;
 
 
 public class Aposta {
-
+    
+        /*
+            BufferedReader e PrintStream é para remover
+            Odd passa a um valor float em vez de ser uma classe Odd
+            Evento.Resultado deveria no minimo ser Resultado ou passar a String
+        */
 	private Apostador apostador;
 	private float m_aposta;
 	private Evento.Resultado resultado;
@@ -57,10 +62,16 @@ public class Aposta {
 	public float getM_aposta() {
 		return m_aposta;
 	}
-
+  
+        /*     
+        A remover
+        */
 	public Odd getOdd_fixada() {
 		return odd_fixada;
 	}
+        /*       
+        A remover
+        */
 
 	public void setOdd_fixada(Odd odd_fixada) {
 		this.odd_fixada = odd_fixada.clone();
@@ -81,6 +92,10 @@ public class Aposta {
 
 //	Views para Apostador
 
+        
+        /*
+        VIEWS é para sairem daqui
+        */
 	public void viewCreateAposta(){
 		String readinput;
 		this.out.println("Introduza o resultado e o montante a apostar: montante, resultado\n");
@@ -109,5 +124,3 @@ public class Aposta {
 
 	}
 }
-
-//refactor to patterns

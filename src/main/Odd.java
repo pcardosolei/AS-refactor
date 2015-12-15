@@ -1,5 +1,6 @@
 package main;
 
+
 public class Odd {
 
 	private float odd1;

@@ -7,7 +7,12 @@ import java.io.PrintStream;
 
 
 public class Apostador implements Observer{
-
+        
+    
+        /*
+        Buffered Reader e PrintStream a remover
+        Dados repetidos para Apostados e Bookie - criar uma super classe.
+        */
 	private String email;
 	private double betESScoins;
 	private String name;
@@ -68,7 +73,11 @@ public class Apostador implements Observer{
 
 
 	// Views de Apostador
-
+        
+        
+        /*
+         VISTAS PARA A INTERFACE
+        */
 	public void viewCreateApostador(){
 
 		String readinput;

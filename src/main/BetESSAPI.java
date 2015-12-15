@@ -9,12 +9,23 @@ import java.io.PrintStream;
 
 public class BetESSAPI {
 
+    
+    /*
+        
+        Vector - collection obsoleta - mudar
+    
+        DEAD CODE 
+        BetESStotal - não é utilizada para nada - remover
+        name - não é utilizado para nada - remover
+    
+        Speculative Generality
+        BufferedReader e PrintStream não estão a ser utilizados.
+    */
 	private Vector<Evento> listaEventos;
 	private Vector<Apostador> listaApostadores;
         private Vector<Bookie> listaBookies;
 	private double betESStotal;
 	private String name;
-
 	private final BufferedReader in;
 	private final PrintStream out;
 
@@ -27,6 +38,8 @@ public class BetESSAPI {
 		this.out = System.out;
 	}
 
+        
+        
 	public void registaAposta(Apostador apostador, Evento evento) {
 		evento.registaAposta(apostador);
 	}
