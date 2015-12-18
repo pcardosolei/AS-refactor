@@ -3,9 +3,6 @@ package main;
 
 import java.time.Instant;
 import java.util.*;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.PrintStream;
 
 public class BetESSAPI {
 
@@ -18,24 +15,16 @@ public class BetESSAPI {
         BetESStotal - não é utilizada para nada - remover
         name - não é utilizado para nada - remover
     
-        Speculative Generality
-        BufferedReader e PrintStream não estão a ser utilizados.
     */
-	private Vector<Evento> listaEventos;
-	private Vector<Apostador> listaApostadores;
-        private Vector<Bookie> listaBookies;
+	private HashMap<Integer,Evento> listaEventos;
+	private HashMap<Integer,Apostador> listaApostadores;
+        private HashMap<Integer,Bookie> listaBookies;
 	private double betESStotal;
-	private String name;
-	private final BufferedReader in;
-	private final PrintStream out;
-
+        
 	public BetESSAPI() {
 		this.betESStotal = 0;
-		this.listaEventos = new Vector<Evento>();
-		this.listaApostadores = new Vector<Apostador>();
-		this.name = "BetESSAPI";
-		this.in = new BufferedReader(new InputStreamReader(System.in));
-		this.out = System.out;
+		this.listaEventos = new HashMap<>();
+		this.listaApostadores = new HashMap<>();
 	}
 
         

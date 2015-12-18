@@ -1,24 +1,14 @@
 package main;
 
-import java.io.BufferedReader;
+import Observer.Subject;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintStream;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.time.Instant;
 
+
 public class Evento implements Subject {
 
-        /*
-            Isto não devia estar aqui 
-            Decoupling
-        */
-	public enum Resultado {
-		VITORIA,
-		DERROTA,
-		EMPATE
-	}
 
 	private static AtomicInteger uniqueId=new AtomicInteger();
         /*
@@ -34,9 +24,7 @@ public class Evento implements Subject {
 	private Resultado resultado_final;
 	private Date dataEvento;
 	private int id;
-	private Vector<Aposta> listaApostas;
-	private final BufferedReader in;
-	private final PrintStream out;
+	private HashMap<Integer,Aposta> listaApostas;
 	private boolean isOpen;
 	private Odd odds;
 
@@ -51,10 +39,8 @@ public class Evento implements Subject {
 		this.dataEvento = data;
 		this.id=uniqueId.getAndIncrement();
 		this.odds = new Odd();
-		this.listaApostas = new Vector<Aposta>();
+		this.listaApostas = new HashMap<Integer,Aposta>();
 
-		this.in = new BufferedReader(new InputStreamReader(System.in));
-		this.out = System.out;
 	}
         
         /* 
@@ -70,10 +56,8 @@ public class Evento implements Subject {
 		this.dataEvento = null;
 		this.id=uniqueId.getAndIncrement();
 		this.odds = new Odd();
-		this.listaApostas = new Vector<Aposta>();
+		this.listaApostas = new HashMap<Integer,Aposta>();
 
-		this.in = new BufferedReader(new InputStreamReader(System.in));
-		this.out = System.out;
 	}
 
 	public void setEquipa1(String equipa1) {
@@ -100,13 +84,13 @@ public class Evento implements Subject {
 
 			switch (resultadofinal) {
 				case '1':
-					this.resultado_final = Resultado.VITORIA;
+					this.resultado_final = Resultado.EQUIPA1;
 					break;
 				case 'x':
 					this.resultado_final = Resultado.EMPATE;
 					break;
 				case '2':
-					this.resultado_final = Resultado.DERROTA;
+					this.resultado_final = Resultado.EQUIPA2;
 					break;
 			}
 		this.isOpen = false;
@@ -166,14 +150,14 @@ public class Evento implements Subject {
 				if (this.resultado_final == aposta.getResultado()) {
 
 					switch (aposta.getResultado()) {
-						case VITORIA:
+						case EQUIPA1:
 							premio = (int) (aposta.getM_aposta() * aposta.getOdd_fixada().getOdd1());
 							break;
 						case EMPATE:
 							premio = (int) (aposta.getM_aposta() * aposta.getOdd_fixada().getOddx());
 							;
 							break;
-						case DERROTA:
+						case EQUIPA2:
 							premio = (int) (aposta.getM_aposta() * aposta.getOdd_fixada().getOdd2());
 							;
 							break;
