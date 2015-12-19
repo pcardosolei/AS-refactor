@@ -1,5 +1,8 @@
 package main;
 
+import Models.Bookie;
+import Models.Apostador;
+
 public class ServiceBetAPITest {
 
     public static void main(String[] args) {

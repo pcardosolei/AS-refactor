@@ -1,6 +1,8 @@
 package main;
 
 
+import Models.Bookie;
+import Models.Apostador;
 import java.time.Instant;
 import java.util.*;
 

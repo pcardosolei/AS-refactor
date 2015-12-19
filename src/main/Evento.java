@@ -1,5 +1,9 @@
 package main;
 
+import Models.Resultado;
+import Models.Odd;
+import Models.Apostador;
+import Models.Aposta;
 import Observer.Subject;
 import java.io.IOException;
 import java.util.*;

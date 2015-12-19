@@ -3,14 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package main;
+package Controllers;
 
 /**
  *
- * @author PauloCardoso
+ * @author Portatilcar
  */
-public enum Resultado {
-		EQUIPA1,
-		EQUIPA2,
-		EMPATE
-	}
+public class BookieController {
+    
+}

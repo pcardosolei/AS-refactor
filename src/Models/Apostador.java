@@ -1,4 +1,4 @@
-package main;
+package Models;
 
 import Observer.Observer;
 
@@ -8,9 +8,7 @@ public class Apostador extends Utilizador implements Observer{
         /*
         OBSERVER PASSA PARA O CONTROLLER ACHO EU-
         */
-	private String email;
 	private double betESScoins;
-	private String name;
         
 	public Apostador(String name, String email, double betESScoins) {
                 super(name,email);
@@ -25,7 +23,7 @@ public class Apostador extends Utilizador implements Observer{
 	public void update(String notificacao) {
 
 
-		System.out.println("\nApostador(" + this.name + "):" + notificacao + "\n");
+		System.out.println("\nApostador(" + super.getName() + "):" + notificacao + "\n");
 	}    
     
 }
