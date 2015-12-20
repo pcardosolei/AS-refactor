@@ -5,10 +5,23 @@
  */
 package Controllers;
 
+import Models.Apostador;
+
 /**
  *
  * @author Portatilcar
  */
 public class ApostadorController {
+    
+    private Apostador apostador;
+    
+    
+    public ApostadorController(Apostador apostador){
+        this.apostador = apostador;
+    }
+    
+    public double getCoins(){ return apostador.getBetESScoins();}
+    public String getName(){return apostador.getName();}
+    
     
 }

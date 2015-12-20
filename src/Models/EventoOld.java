@@ -1,89 +1,20 @@
-package main;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Models;
 
-import Models.Resultado;
-import Models.Odd;
-import Models.Apostador;
-import Models.Aposta;
-import Observer.Subject;
-import java.io.IOException;
-import java.util.*;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.time.Instant;
-
-
-public class Evento implements Subject {
-
-
-	private static AtomicInteger uniqueId=new AtomicInteger();
-        /*
-          VECTOR é uma classe obsoleta
-          BufferedReader e PrintStream não utilizados
-          AtomicInteger não é necessário para os id se trabalharmos sobre a forma de hashmaps de inteiros 
-            para controlar todos os eventos.
-          Id pode ser removido pela ideia anterior.
-        Nota: o isOpen nunca fica diferente de false.
-        */
-	private String equipa1;
-	private String equipa2;
-	private Resultado resultado_final;
-	private Date dataEvento;
-	private int id;
-	private HashMap<Integer,Aposta> listaApostas;
-	private boolean isOpen;
-	private Odd odds;
-
-        /*
-         Remover bufferedReader + this.out
-        */
-	public Evento(String equipa1, String equipa2, Date data) {
-		this.equipa1 = equipa1;
-		this.equipa2 = equipa2;
-		this.isOpen = false;
-		this.resultado_final = null;
-		this.dataEvento = data;
-		this.id=uniqueId.getAndIncrement();
-		this.odds = new Odd();
-		this.listaApostas = new HashMap<Integer,Aposta>();
-
-	}
-        
-        /* 
-        Mesmo do anterior mas entender pq é que necessários dois construtores.
-        se remover o de baixo é remover os sets e os gets.
-        */
-        
-	public Evento() {
-		this.equipa1 = null;
-		this.equipa2 = null;
-		this.isOpen = false;
-		this.resultado_final = null;
-		this.dataEvento = null;
-		this.id=uniqueId.getAndIncrement();
-		this.odds = new Odd();
-		this.listaApostas = new HashMap<Integer,Aposta>();
-
-	}
-
-	public void setEquipa1(String equipa1) {
-		this.equipa1 = equipa1;
-	}
-
-	public String getEquipa2() {
-		return this.equipa2;
-	}
-
-	public void setEquipa2(String equipa2) {
-		this.equipa2 = equipa2;
-	}
-
-	public void setDataEvento(Date dataEvento) {
-		this.dataEvento = dataEvento;
-	}
-        /*
+/**
+ *
+ * @author Portatilcar
+ */
+public class EventoOld {
+       /*
             perguntar ao andre se a classe resultado faz algum sentido. 
         
             não é 
-        */
+      
 	public boolean fechaEvento(char resultadofinal){
 
 			switch (resultadofinal) {
@@ -105,7 +36,7 @@ public class Evento implements Subject {
         /*
          METHODS CHAINING- VEIO DA API Para vir buscar a view e registar a aposta 
         
-        */
+       
 	public void registaAposta(Apostador apostador) {
 
 		Aposta aposta = new Aposta();
@@ -119,8 +50,8 @@ public class Evento implements Subject {
         /*
          actualizaOdd e updateOdds utilizam o mesmo codigo para fazer a mesma coisa 
             com a diferença do tipo retornado
-        */
-	public boolean actualizaOdd(int odd1, int oddx, int odd2 ){
+        
+        public boolean actualizaOdd(int odd1, int oddx, int odd2 ){
 		this.odds.setOddx(oddx);
 		this.odds.setOdd1(odd1);
 		this.odds.setOdd2(odd2);
@@ -143,7 +74,7 @@ public class Evento implements Subject {
          METODO MUITO GRANDE 
          VAI BUSCAR MUITOS METODOS DE OUTRA CLASS
          REALIZA TAREFAS QUE PODIAM SER REALIZADAS NUMA CAMADA MAIS BAIXA COM MENOS RECURSOS
-        */
+      
 	public void notifyApostadores() {
 		int premio = 0;
 		if (!this.isOpen){
@@ -181,7 +112,7 @@ public class Evento implements Subject {
         /*
             Long Class
             vistas devem ser utilizadas numa outra camada
-        */
+       
 	public String viewEvento() {
 		return "Evento{" +
 				"equipa1='" + equipa1 + '\'' +
@@ -196,7 +127,7 @@ public class Evento implements Subject {
         
         /*
          viewCreateEvento + viewUpdateEvento teem o mesmo codigo para realizar duas acções diferentes
-        */
+        
 	public void viewCreateEvento(){
 
 		String readinput;
@@ -232,6 +163,5 @@ public class Evento implements Subject {
 		this.out.println("Remover Apostador" + this.viewEvento());
 
 	}
-
-
+*/
 }

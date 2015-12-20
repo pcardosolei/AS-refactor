@@ -10,8 +10,7 @@ public class Aposta {
 	private float m_aposta;
 	private Resultado resultado;
 	private float odd_fixada;
-
-
+        
 	public Aposta(){
 		this.apostador = null;
 		this.m_aposta = 0;
@@ -22,21 +21,9 @@ public class Aposta {
 	public Aposta(Apostador apostador, float m_aposta, char resultado, float odd_actual) {
 		this.apostador = apostador;
 		this.m_aposta = m_aposta;
-		switch (resultado) {
-			case '1':
-				this.resultado = Resultado.EQUIPA1;
-				break;
-			case 'x':
-				this.resultado = Resultado.EMPATE;
-				break;
-			case '2':
-				this.resultado = Resultado.EQUIPA2;
-				break;
-		}
+                setResultadoAposta(resultado);
 		this.odd_fixada = odd_actual;
 		}
-
-	// getter and setters
 
 	public Apostador getApostador() {return apostador;}
 
@@ -53,4 +40,18 @@ public class Aposta {
 	public void setApostador(Apostador apostador) {this.apostador = apostador;}
 
 	public void setResultado(Resultado resultado) {this.resultado = resultado;}
+        
+        private void setResultadoAposta(char resultado){
+            switch (resultado) {
+			case '1':
+				this.resultado = Resultado.EQUIPA1;
+				break;
+			case 'x':
+				this.resultado = Resultado.EMPATE;
+				break;
+			case '2':
+				this.resultado = Resultado.EQUIPA2;
+				break;
+		}
+        }
 }

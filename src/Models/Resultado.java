@@ -14,3 +14,4 @@ public enum Resultado {
 		EQUIPA2,
 		EMPATE
 	}
+

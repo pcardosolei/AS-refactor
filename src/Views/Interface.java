@@ -33,7 +33,6 @@ public class Interface extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        Dados = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("BET ESS");
@@ -95,19 +94,6 @@ public class Interface extends javax.swing.JFrame {
 
         TabBETESS.addTab("Eventos", Eventos);
 
-        javax.swing.GroupLayout DadosLayout = new javax.swing.GroupLayout(Dados);
-        Dados.setLayout(DadosLayout);
-        DadosLayout.setHorizontalGroup(
-            DadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 816, Short.MAX_VALUE)
-        );
-        DadosLayout.setVerticalGroup(
-            DadosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 453, Short.MAX_VALUE)
-        );
-
-        TabBETESS.addTab("Dados Utilizador", Dados);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -124,16 +110,16 @@ public class Interface extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        
-        LoginScreen login = new LoginScreen();
-        login.setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
-
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         Registo registo = new Registo();
         registo.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+
+        LoginScreen login = new LoginScreen();
+        login.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -171,7 +157,6 @@ public class Interface extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel Dados;
     private javax.swing.JPanel Eventos;
     private javax.swing.JTabbedPane TabBETESS;
     private javax.swing.JButton jButton2;

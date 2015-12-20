@@ -5,10 +5,20 @@
  */
 package Controllers;
 
+import Models.Bookie;
+
 /**
  *
  * @author Portatilcar
  */
 public class BookieController {
+      private Bookie bookie;
+    
+    
+     public BookieController(Bookie bookie){
+        this.bookie = bookie;
+    }
+     
+    public String getName(){return bookie.getName();}
     
 }

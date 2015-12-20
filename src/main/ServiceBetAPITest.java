@@ -1,14 +1,16 @@
 package main;
 
+import Models.Evento;
 import Models.Bookie;
 import Models.Apostador;
 
+/*
 public class ServiceBetAPITest {
 
     public static void main(String[] args) {
 
         // criar casa de apostas
-        BetESSAPI casaApostas = new BetESSAPI();
+        Sistema casaApostas = new Sistema();
 
         // Criar dois eventos na casa de apostas
         Evento evento1 = casaApostas.registaEvento();
@@ -48,3 +50,4 @@ public class ServiceBetAPITest {
     }
 
 }
+*/
