@@ -7,6 +7,8 @@ package main;
 
 import Views.Interface;
 
+
+
 /**
  *
  * @author Portatilcar
@@ -16,9 +18,8 @@ public class BetESSAPI {
     
     public static void main(String[] args){
         
-        Interface view = new Interface();       
-        view.setVisible(true);
-        
+        Interface vista = new Interface();      
+        A
     }
     
 }

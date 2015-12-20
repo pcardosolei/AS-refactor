@@ -23,5 +23,31 @@ public class ApostadorController {
     public double getCoins(){ return apostador.getBetESScoins();}
     public String getName(){return apostador.getName();}
     
+    /*
+    public Apostador registaApostador() {
+
+
+		Apostador newuser = new Apostador();
+		newuser.viewCreateApostador();
+		this.listaApostadores.add(newuser);
+
+
+		return newuser;
+	}
+
+	public Apostador actualizaApostador(Apostador apostador) {
+
+
+		apostador.viewUpdateApostadpr(apostador);
+
+
+		return apostador;
+	}
     
+    public boolean deleteApostador(Apostador apostador){
+		apostador.viewDeleteApostador();
+		return this.listaApostadores.remove(apostador);
+
+	}
+    */
 }

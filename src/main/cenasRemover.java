@@ -13,26 +13,6 @@ package main;
 /*
 public class cenasRemover {
     
-    
-	public void registaAposta(Apostador apostador, Evento evento) {
-		evento.registaAposta(apostador);
-	}
-
-	// Interface sobre Eventos
-
-	public boolean actualizaOdd(Evento evento, int odd_1, int odd_x, int odd_2){
-
-		return evento.actualizaOdd(odd_1,odd_x,odd_2);
-	}
-
-	public boolean  fechaEvento(Evento evento, char resultado){
-		return evento.fechaEvento(resultado);
-	}
-        
-        public void fechaEvento(Bookie bookie,Evento evento){
-             evento.setEstado(true);
-        }
-
 	public void viewEventos(){
 
 		ListIterator<Evento> listIterator = this.listaEventos.listIterator();
@@ -83,31 +63,9 @@ public class cenasRemover {
 		return newuser;
 	}
 
-	public Apostador registaApostador() {
+	
 
-
-		Apostador newuser = new Apostador();
-		newuser.viewCreateApostador();
-		this.listaApostadores.add(newuser);
-
-
-		return newuser;
-	}
-
-	public Apostador actualizaApostador(Apostador apostador) {
-
-
-		apostador.viewUpdateApostadpr(apostador);
-
-
-		return apostador;
-	}
-
-	public boolean deleteApostador(Apostador apostador){
-		apostador.viewDeleteApostador();
-		return this.listaApostadores.remove(apostador);
-
-	}
+	
 
 	// Interface sobre Bookies
 
@@ -122,13 +80,6 @@ public class cenasRemover {
         }
         
         
-	// Objects view
-	@Override
-	public String toString() {
-		return "BetESSAPI{" +
-				"name=" + name +
-				", betESStotal=" + betESStotal +
-				'}';
-	}
+
 }
 */

@@ -11,8 +11,7 @@ package Models;
  */
 public class EventoOld {
        /*
-            perguntar ao andre se a classe resultado faz algum sentido. 
-        
+            
             não é 
       
 	public boolean fechaEvento(char resultadofinal){
@@ -105,63 +104,6 @@ public class EventoOld {
 
 	public void setOdds(float odd_1, float odd_x, float odd_2) {
 		this.odds = new Odd(odd_1,odd_x,odd_2);
-	}
-
-	
-	// views Evento
-        /*
-            Long Class
-            vistas devem ser utilizadas numa outra camada
-       
-	public String viewEvento() {
-		return "Evento{" +
-				"equipa1='" + equipa1 + '\'' +
-				", equipa2='" + equipa2 + '\'' +
-				", resultado_final=" + resultado_final +
-				", estado=" + isOpen +
-				", data da aposta" + dataEvento.toString() +
-				", ultima odd" + this.odds.toString() +
-				'}';
-	}
-
-        
-        /*
-         viewCreateEvento + viewUpdateEvento teem o mesmo codigo para realizar duas acções diferentes
-        
-	public void viewCreateEvento(){
-
-		String readinput;
-		this.out.print("Introduza as equipas participantes no evento: (Equipa1, Equipa2, DataEvento)\n");
-		try {
-			readinput = this.in.readLine();
-			String[] tokens = readinput.split(",");
-			this.setEquipa2(tokens[1]);
-			this.setEquipa1(tokens[0]);
-			this.setDataEvento(Date.from(Instant.now()));
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-
-	public void viewUpdateEvento(){
-		String readinput;
-		this.out.print("Introduza as equipas participantes no evento: (Equipa1, Equipa2, DataEvento)\n");
-		try {
-			readinput = this.in.readLine();
-			String[] tokens = readinput.split(",");
-			this.setEquipa2(tokens[1]);
-			this.setEquipa1(tokens[0]);
-			this.setDataEvento(Date.from(Instant.now()));
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-
-	public void viewDeleteApostador(){
-		this.out.println("Remover Apostador" + this.viewEvento());
-
 	}
 */
 }
