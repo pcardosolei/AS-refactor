@@ -13,7 +13,6 @@ public class Evento  {
 	private String equipa2;
 	private Resultado resultado_final;
 	private Date dataEvento;
-	private int id;
 	private ApostaController listaApostas;
 	private boolean isOpen;
 	private OddController odds;

@@ -39,7 +39,11 @@ public class BookieController {
            }
          return flag;
     }  
-    /*
-    public String getName(){return bookie.getName();}
-    */
+
+    public String getName(String bookie){return bookies.get(bookie).getName();}
+    public String getEmail(String bookie){return bookies.get(bookie).getEmail();}
+    
+    public void setName(String bookie,String name){ bookies.get(bookie).setName(name);}
+    public void setEmail(String bookie,String email){bookies.get(bookie).setEmail(email);}
+    
 }

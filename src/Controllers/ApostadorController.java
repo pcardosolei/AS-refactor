@@ -48,20 +48,5 @@ public class ApostadorController {
            }
          return flag;
     }
-    /*
-	public Apostador actualizaApostador(Apostador apostador) {
 
-
-		apostador.viewUpdateApostadpr(apostador);
-
-
-		return apostador;
-	}
-    
-    public boolean deleteApostador(Apostador apostador){
-		apostador.viewDeleteApostador();
-		return this.listaApostadores.remove(apostador);
-
-	}
-    */
 }

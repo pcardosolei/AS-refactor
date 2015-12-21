@@ -35,6 +35,7 @@ public class MainViewController {
     public void updateLogin(){
         this.mainview.setEmailText(apostadorControlador.getEmail(loginInfo.getName()));
         this.mainview.setNomeText(apostadorControlador.getName(loginInfo.getName()));
+        this.mainview.setUtilizadorText(loginInfo.getName());
     }
     
     public void startApp(){

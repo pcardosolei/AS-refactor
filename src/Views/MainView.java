@@ -35,8 +35,8 @@ public class MainView extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        BemVindo = new javax.swing.JLabel();
+        Utilizador = new javax.swing.JLabel();
         UtilizadorTab = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -62,48 +62,44 @@ public class MainView extends javax.swing.JFrame {
 
         jButton2.setText("jButton2");
 
-        jLabel5.setText("jLabel5");
-
-        jLabel6.setText("jLabel6");
+        BemVindo.setText("Bem Vindo:");
 
         javax.swing.GroupLayout EventosTabLayout = new javax.swing.GroupLayout(EventosTab);
         EventosTab.setLayout(EventosTabLayout);
         EventosTabLayout.setHorizontalGroup(
             EventosTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EventosTabLayout.createSequentialGroup()
+            .addGroup(EventosTabLayout.createSequentialGroup()
                 .addGroup(EventosTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(EventosTabLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(29, 29, 29)
                         .addGroup(EventosTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton1)
-                            .addComponent(jButton2))
-                        .addGap(46, 46, 46))
+                            .addComponent(BemVindo)
+                            .addComponent(jButton2)))
                     .addGroup(EventosTabLayout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(jLabel5)
-                        .addGap(46, 46, 46)
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)))
+                        .addGap(37, 37, 37)
+                        .addComponent(Utilizador, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41))
         );
         EventosTabLayout.setVerticalGroup(
             EventosTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(EventosTabLayout.createSequentialGroup()
-                .addGroup(EventosTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(EventosTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(EventosTabLayout.createSequentialGroup()
-                        .addGap(77, 77, 77)
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, EventosTabLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(BemVindo)
+                        .addGap(18, 18, 18)
+                        .addComponent(Utilizador, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26)
                         .addComponent(jButton1)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton2))
-                    .addGroup(EventosTabLayout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addGroup(EventosTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(EventosTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel5)
-                                .addComponent(jLabel6))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(50, Short.MAX_VALUE))
+                        .addComponent(jButton2)))
+                .addContainerGap(75, Short.MAX_VALUE))
         );
 
         DadosUtilizador.addTab("Eventos", EventosTab);
@@ -195,22 +191,22 @@ public class MainView extends javax.swing.JFrame {
         });
     }
     
-    public void setEmailText(String text){EmailText.setText(text);}
-            
+    public void setUtilizadorText(String text){Utilizador.setText(text);}
+    public void setEmailText(String text){EmailText.setText(text);}          
     public void setNomeText(String text){NomeText.setText(text);}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel BemVindo;
     private javax.swing.JTabbedPane DadosUtilizador;
     private javax.swing.JLabel EmailText;
     private javax.swing.JPanel EventosTab;
     private javax.swing.JLabel NomeText;
+    private javax.swing.JLabel Utilizador;
     private javax.swing.JPanel UtilizadorTab;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
