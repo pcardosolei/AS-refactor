@@ -6,19 +6,40 @@
 package Controllers;
 
 import Models.Bookie;
+import java.util.HashMap;
 
 /**
  *
  * @author Portatilcar
  */
 public class BookieController {
-      private Bookie bookie;
-    
-    
-     public BookieController(Bookie bookie){
-        this.bookie = bookie;
+     private HashMap<String,Bookie> bookies;
+     
+     public BookieController(){
+         this.bookies = new HashMap<>();
     }
      
-    public String getName(){return bookie.getName();}
+     public void registaBookie(String name,String email,String password) {
+        Bookie bookie = new Bookie(name,email,password);    
+        this.bookies.put(name,bookie);
+     }
     
+      public void deleteBookie(String bookie){
+        this.bookies.remove(bookie);
+    }
+      
+    public boolean confirmaBookie(String nome,String password){
+        boolean flag = false;
+        String test;
+        try{
+            test = this.bookies.get(nome).getPassword();
+            flag = test.equals(password);
+           }catch(NullPointerException e){
+                 System.out.println("cenas bookie");
+           }
+         return flag;
+    }  
+    /*
+    public String getName(){return bookie.getName();}
+    */
 }

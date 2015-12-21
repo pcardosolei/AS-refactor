@@ -10,9 +10,9 @@ public class Apostador extends Utilizador implements Observer{
         */
 	private double betESScoins;
         
-	public Apostador(String name, String email, double betESScoins) {
-                super(name,email);
-                this.betESScoins = betESScoins;
+	public Apostador(String name, String email,String password) {
+                super(name,email,password);
+                this.betESScoins = 0;
 	}
         
 	public double getBetESScoins() {return betESScoins;}

@@ -5,7 +5,12 @@
  */
 package main;
 
-import Views.Interface;
+import Controllers.ApostadorController;
+import Controllers.BookieController;
+import Controllers.LoginViewController;
+import Controllers.MainViewController;
+import Views.LoginView;
+import Views.MainView;
 
 
 
@@ -18,8 +23,9 @@ public class BetESSAPI {
     
     public static void main(String[] args){
         
-        Interface vista = new Interface();      
-        A
+        MainView main = new MainView();
+        MainViewController app = new MainViewController(main);
+        
     }
     
 }

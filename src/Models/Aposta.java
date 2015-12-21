@@ -26,21 +26,16 @@ public class Aposta {
 		}
 
 	public Apostador getApostador() {return apostador;}
-
 	public Resultado getResultado() {return resultado;}
-
 	public float getM_aposta() {return m_aposta;}
-  
 	public float getOdd_fixada() {return odd_fixada;}
-
-	public void setOdd_fixada(float odd_fixada) {this.odd_fixada = odd_fixada;}
-
+	
+        public void setOdd_fixada(float odd_fixada) {this.odd_fixada = odd_fixada;}
 	public void setM_aposta(float m_aposta) {this.m_aposta = m_aposta;}
-
 	public void setApostador(Apostador apostador) {this.apostador = apostador;}
-
-	public void setResultado(Resultado resultado) {this.resultado = resultado;}
+	public void setResultado(char resultado) {setResultadoAposta(resultado);}
         
+   
         private void setResultadoAposta(char resultado){
             switch (resultado) {
 			case '1':
