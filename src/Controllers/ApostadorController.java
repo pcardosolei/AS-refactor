@@ -14,10 +14,12 @@ import java.util.HashMap;
  */
 public class ApostadorController {
     
-    private HashMap<String,Apostador> apostadores;
+    private HashMap<String,Apostador> apostadores;   
+    private MainViewController mainController;
     
     
-    public ApostadorController(){
+    public ApostadorController(MainViewController main){
+        this.mainController = main;
         apostadores = new HashMap<>();
     }
     
@@ -49,4 +51,12 @@ public class ApostadorController {
          return flag;
     }
 
+    public void actualizarSaldo(String nome,double valor,String escolha){
+        if(escolha.equals("deposito")){
+            apostadores.get(nome).setBetESScoins(apostadores.get(nome).getBetESScoins()+valor);
+        }else
+            apostadores.get(nome).setBetESScoins(apostadores.get(nome).getBetESScoins()-valor);
+        mainController.updateVista();
+    }
+    
 }

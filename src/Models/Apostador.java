@@ -4,10 +4,6 @@ import Observer.Observer;
 
 public class Apostador extends Utilizador implements Observer{
         
-    
-        /*
-        OBSERVER PASSA PARA O CONTROLLER ACHO EU-
-        */
 	private double betESScoins;
         
 	public Apostador(String name, String email,String password) {

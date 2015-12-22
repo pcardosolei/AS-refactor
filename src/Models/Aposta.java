@@ -11,13 +11,6 @@ public class Aposta {
 	private Resultado resultado;
 	private float odd_fixada;
         
-	public Aposta(){
-		this.apostador = null;
-		this.m_aposta = 0;
-		this.resultado = null;
-		this.odd_fixada = 0;
-		}
-
 	public Aposta(Apostador apostador, float m_aposta, char resultado, float odd_actual) {
 		this.apostador = apostador;
 		this.m_aposta = m_aposta;

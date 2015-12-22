@@ -89,7 +89,7 @@ public class LoginViewController {
         if(flag){
             loginInfo.setName(nome);
             loginInfo.setTipo(escolha);
-            mainController.updateLogin();
+            mainController.updateVista();
             view.dispose();
         }
     }

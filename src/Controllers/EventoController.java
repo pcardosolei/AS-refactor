@@ -7,6 +7,7 @@ package Controllers;
 
 import Models.Evento;
 import Models.Odd;
+import Models.Resultado;
 import java.util.HashMap;
 import java.time.Instant;
 import java.util.Date;
@@ -21,56 +22,68 @@ public class EventoController {
     
     private HashMap<Integer,Evento> eventos;
     
-    public EventoController(Evento evento){
+    public EventoController(){
         this.eventos = new HashMap<>();
     }
     
     
-    public void addEvento(String equipa1,String equipa2,int oddEquipa1,int empate, int oddEquipa2){
+    public void addEvento(String equipa1,String equipa2,float oddEquipa1,float empate, float oddEquipa2){
         OddController odds = new OddController(new Odd(oddEquipa1,empate,oddEquipa2));
         Evento evento = new Evento(equipa1,equipa2,Date.from(Instant.now()),odds);
         this.eventos.put(eventos.size(),evento);
+        
     }
    
     public void deleteEvento(int evento){
         this.eventos.remove(evento);
     }
-    /*
-    public void registaAposta(Apostador apostador, Evento evento) {evento.getApostaController().registaAposta(apostador);}
-
     
-    
-	public boolean actualizaOdd(Evento evento, int odd_1, int odd_x, int odd_2){
-
-		return evento.actualizaOdd(odd_1,odd_x,odd_2);
+    public void actualizaOdd(int evento, int odd_1, int odd_x, int odd_2){
+        OddController odds = new OddController(new Odd(odd_1,odd_x,odd_2));
+        setOdds(evento,odds);
 	}
-      
-    public boolean  fechaEvento(Evento evento, char resultado){
-		return evento.fechaEvento(resultado);
-	}
-        
-      public void fechaEvento(Bookie bookie,int a){eventos.get(a).setOpen(false);}
+   
     
-      /*
-     
-      
-	public boolean fechaEvento(char resultadofinal){
-
-			switch (resultadofinal) {
-				case '1':
-					this.resultado_final = Resultado.EQUIPA1;
-					break;
-				case 'x':
-					this.resultado_final = Resultado.EMPATE;
-					break;
-				case '2':
-					this.resultado_final = Resultado.EQUIPA2;
-					break;
+    public String getEquipa1(int evento){return this.eventos.get(evento).getEquipa1();}
+    public String getEquipa2(int evento){return this.eventos.get(evento).getEquipa2();}
+    
+    public void setOdds(int evento,OddController odds) {this.eventos.get(evento).setOdds(odds);}  
+    public void setEstado(int evento,boolean estado) {this.eventos.get(evento).setOpen(estado);}
+    
+    public HashMap<Integer,Evento> getEventos(){
+        HashMap<Integer,Evento> aux = new HashMap<>();
+        for(Integer a: eventos.keySet()){
+            aux.put(a,eventos.get(a));
+        }
+        return aux;
+    }
+    
+   
+    public void fechaEvento(int evento,char resultadofinal){
+               registaResultado(evento,resultadofinal);
+               eventos.get(evento).setOpen(false);
+		//this.notifyApostadores();
+	}
+    private void registaResultado(int evento,char resultadofinal){
+            switch (resultadofinal) {
+				case '1':eventos.get(evento).setResultado(Resultado.EQUIPA1);
+                                         break;
+                                case 'x':eventos.get(evento).setResultado(Resultado.EQUIPA1);
+                                         break;
+                                case '2':eventos.get(evento).setResultado(Resultado.EQUIPA2);
+					 break;
 			}
-		this.isOpen = false;
-		this.notifyApostadores();
-		return true;
-	}
+            }
+    
+    /*
+    public void registaAposta(Apostador apostador, int evento){
+        this.eventos.get(evento).getApostaController().registaAposta(apostador);
+    }
+
+    ?/
+    
+     
+    
         
         /*
          METHODS CHAINING- VEIO DA API Para vir buscar a view e registar a aposta 
@@ -86,30 +99,6 @@ public class EventoController {
 		this.listaApostas.add(aposta);
 
 	}
-        /*
-         actualizaOdd e updateOdds utilizam o mesmo codigo para fazer a mesma coisa 
-            com a diferença do tipo retornado
-        
-        public boolean actualizaOdd(int odd1, int oddx, int odd2 ){
-		this.odds.setOddx(oddx);
-		this.odds.setOdd1(odd1);
-		this.odds.setOdd2(odd2);
-		return true;
-	}
-        
-        public void updateOdds(float odd_1, float odd_x, float odd_2){
-                this.odds.setOdd1(odd_1);
-		this.odds.setOdd2(odd_2);
-		this.odds.setOddx(odd_x);
-	}
-
-        
-	public void setEstado(boolean estado) {
-		// TODO - implement Aposta.setEstado
-                this.isOpen = estado;
-	}
-        
-        /*
          METODO MUITO GRANDE 
          VAI BUSCAR MUITOS METODOS DE OUTRA CLASS
          REALIZA TAREFAS QUE PODIAM SER REALIZADAS NUMA CAMADA MAIS BAIXA COM MENOS RECURSOS
@@ -142,8 +131,6 @@ public class EventoController {
 		}
 	}
 
-	public void setOdds(float odd_1, float odd_x, float odd_2) {
-		this.odds = new Odd(odd_1,odd_x,odd_2);
-	}
+	
 */
 }

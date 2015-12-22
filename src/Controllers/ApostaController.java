@@ -41,8 +41,7 @@ public class ApostaController {
             return aux;}
         
         public void adicionarAposta(){
-            Aposta aposta = new Aposta();
-            this.listaApostas.put(listaApostas.size(),aposta);
+    //        this.listaApostas.put(listaApostas.size(),aposta);
         }
         
         public void removeAposta(int a){
