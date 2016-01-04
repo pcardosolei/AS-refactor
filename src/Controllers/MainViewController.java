@@ -1,25 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Controllers;
 
+import Exception.SemSaldoException;
 import Models.Evento;
 import Models.LoginInfo;
-import Views.CriarEventoView;
-import Views.InfoEventoView;
-import Views.LoginView;
-import Views.MainView;
+import Views.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
 
-
-/**
- *
- * @author Portatilcar
- */
 public class MainViewController {
     
     private LoginInfo loginInfo;
@@ -34,19 +22,34 @@ public class MainViewController {
         this.loginInfo = new LoginInfo();
         apostadorControlador = new ApostadorController(this);
         bookiesControlador  = new BookieController();
-        eventoController = new EventoController();
+        eventoController = new EventoController(apostadorControlador );
         startApp();
+        this.mainview.OffApostador();
         this.mainview.setVisible(true);
+        
         startListeners();
     }
     
     
   
     public void updateVista(){
+        if(loginInfo.getTipo().equals("Apostador")){
         this.mainview.setEmailText(apostadorControlador.getEmail(loginInfo.getName()));
         this.mainview.setNomeText(apostadorControlador.getName(loginInfo.getName()));
         this.mainview.setUtilizadorText(loginInfo.getName());
         this.mainview.setBetESS(apostadorControlador.getCoins(loginInfo.getName()));
+        this.mainview.OnApostador();
+        } 
+        else{
+        this.mainview.setEmailText(bookiesControlador.getEmail(loginInfo.getName()));
+        this.mainview.setNomeText(bookiesControlador.getName(loginInfo.getName()));
+        this.mainview.setUtilizadorText(loginInfo.getName());
+        this.mainview.OffApostador();
+        }
+    }
+    
+    public void addUtilizadorTab(){
+        this.mainview.OnApostador();
     }
     
     public void startApp(){
@@ -61,13 +64,15 @@ public class MainViewController {
         this.mainview.addCriarEventoListener(new CriarEventoListener(this));
         this.mainview.addTransacaoListener(new TransacaoListener());
         this.mainview.addEventoInfoListener(new InfoEventoListener(this));
+        this.mainview.addCriarApostaListener(new CriarApostaListener());
         }
     
     public void updateTable(){
         HashMap<Integer,Evento> eventos = eventoController.getEventos();
         this.mainview.setTable(eventos);
     }
-
+    
+    
     class CriarEventoListener implements ActionListener {
 
         private MainViewController main;
@@ -82,15 +87,34 @@ public class MainViewController {
         }
     }
     
+    class CriarApostaListener implements ActionListener {
+
+       
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            try{
+            int evento = Integer.parseInt(mainview.getEvento());
+            CriarApostaView iview = new CriarApostaView();
+            CriarApostaViewController apostasController = new CriarApostaViewController(evento,eventoController,iview,loginInfo.getName());
+            iview.setVisible(true);
+        } catch(NullPointerException a){
+            System.out.println("Erro infolistener");
+        }
+        }
+    }
+    
     class TransacaoListener implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
+            try{
             double valor = Double.parseDouble(mainview.getValor());
             String escolha = mainview.getEscolha();
             apostadorControlador.actualizarSaldo(loginInfo.getName(),valor,escolha);
+            }catch(SemSaldoException a){
+                mainview.setErro(a.getMessage());
+            }   
         }
-        
     }
     
     class InfoEventoListener implements ActionListener {

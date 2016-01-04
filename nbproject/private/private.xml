@@ -5,28 +5,23 @@
         <group>
             <file>file:/Users/PauloCardoso/NetBeansProjects/AS-refactor/src/Controllers/OddController.java</file>
             <file>file:/Users/PauloCardoso/NetBeansProjects/AS-refactor/src/Models/Evento.java</file>
-            <file>file:/Users/PauloCardoso/NetBeansProjects/AS-refactor/src/Views/InfoEventoView.java</file>
             <file>file:/Users/PauloCardoso/NetBeansProjects/AS-refactor/src/Controllers/InfoEventoViewController.java</file>
-            <file>file:/Users/PauloCardoso/NetBeansProjects/AS-refactor/src/Controllers/BookieController.java</file>
-            <file>file:/Users/PauloCardoso/NetBeansProjects/AS-refactor/src/Controllers/MainViewController.java</file>
-            <file>file:/Users/PauloCardoso/NetBeansProjects/AS-refactor/src/main/cenasRemover.java</file>
-            <file>file:/Users/PauloCardoso/NetBeansProjects/AS-refactor/src/Views/MainView.java</file>
-            <file>file:/Users/PauloCardoso/NetBeansProjects/AS-refactor/src/Controllers/ApostaController.java</file>
-            <file>file:/Users/PauloCardoso/NetBeansProjects/AS-refactor/src/Controllers/CriarEventoViewController.java</file>
-            <file>file:/Users/PauloCardoso/NetBeansProjects/AS-refactor/src/main/ServiceBetAPITest.java</file>
-            <file>file:/Users/PauloCardoso/NetBeansProjects/AS-refactor/src/Models/Apostador.java</file>
-            <file>file:/Users/PauloCardoso/NetBeansProjects/AS-refactor/src/Models/LoginInfo.java</file>
-            <file>file:/Users/PauloCardoso/NetBeansProjects/AS-refactor/src/Models/Utilizador.java</file>
-            <file>file:/Users/PauloCardoso/NetBeansProjects/AS-refactor/src/Views/CriarEventoView.java</file>
             <file>file:/Users/PauloCardoso/NetBeansProjects/AS-refactor/src/Controllers/LoginViewController.java</file>
             <file>file:/Users/PauloCardoso/NetBeansProjects/AS-refactor/src/main/BetESSAPI.java</file>
-            <file>file:/Users/PauloCardoso/NetBeansProjects/AS-refactor/src/Models/Aposta.java</file>
+            <file>file:/Users/PauloCardoso/NetBeansProjects/AS-refactor/src/Controllers/BookieController.java</file>
+            <file>file:/Users/PauloCardoso/NetBeansProjects/AS-refactor/src/Exception/ErroException.java</file>
             <file>file:/Users/PauloCardoso/NetBeansProjects/AS-refactor/src/Controllers/CriarApostaViewController.java</file>
-            <file>file:/Users/PauloCardoso/NetBeansProjects/AS-refactor/src/Views/CriarApostaView.java</file>
+            <file>file:/Users/PauloCardoso/NetBeansProjects/AS-refactor/src/Controllers/MainViewController.java</file>
+            <file>file:/Users/PauloCardoso/NetBeansProjects/AS-refactor/src/Exception/SemSaldoException.java</file>
             <file>file:/Users/PauloCardoso/NetBeansProjects/AS-refactor/src/Models/Bookie.java</file>
+            <file>file:/Users/PauloCardoso/NetBeansProjects/AS-refactor/src/Controllers/ApostaController.java</file>
+            <file>file:/Users/PauloCardoso/NetBeansProjects/AS-refactor/src/Views/MainView.java</file>
+            <file>file:/Users/PauloCardoso/NetBeansProjects/AS-refactor/src/Controllers/CriarEventoViewController.java</file>
             <file>file:/Users/PauloCardoso/NetBeansProjects/AS-refactor/src/Controllers/EventoController.java</file>
+            <file>file:/Users/PauloCardoso/NetBeansProjects/AS-refactor/src/main/ServiceBetAPITest.java</file>
+            <file>file:/Users/PauloCardoso/NetBeansProjects/AS-refactor/src/Models/Apostador.java</file>
             <file>file:/Users/PauloCardoso/NetBeansProjects/AS-refactor/src/Controllers/ApostadorController.java</file>
-            <file>file:/Users/PauloCardoso/NetBeansProjects/AS-refactor/src/Models/Odd.java</file>
+            <file>file:/Users/PauloCardoso/NetBeansProjects/AS-refactor/src/Models/Utilizador.java</file>
             <file>file:/Users/PauloCardoso/NetBeansProjects/AS-refactor/src/Views/LoginView.java</file>
         </group>
     </open-files>

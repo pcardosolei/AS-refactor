@@ -38,11 +38,12 @@ public class MainView extends javax.swing.JFrame {
         eventosScroll = new javax.swing.JScrollPane();
         TableTexto = new javax.swing.JTable();
         CriarEventoButton = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        criarApostaButton = new javax.swing.JButton();
         BemVindo = new javax.swing.JLabel();
         Utilizador = new javax.swing.JLabel();
         Coins = new javax.swing.JLabel();
         InfoEvento = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         UtilizadorTab = new javax.swing.JPanel();
         Nome = new javax.swing.JLabel();
         Email = new javax.swing.JLabel();
@@ -55,6 +56,10 @@ public class MainView extends javax.swing.JFrame {
         ValorText = new javax.swing.JTextField();
         Valor = new javax.swing.JLabel();
         ValorButton = new javax.swing.JButton();
+        ErroMessage = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        NotificaçõesScroll = new javax.swing.JList();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -91,11 +96,17 @@ public class MainView extends javax.swing.JFrame {
 
         CriarEventoButton.setText("CriarEvento");
 
-        jButton2.setText("Criar Aposta");
+        criarApostaButton.setText("Criar Aposta");
 
         BemVindo.setText("Bem Vindo:");
 
+        Utilizador.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        Coins.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+
         InfoEvento.setText("Info Evento");
+
+        jLabel1.setText("Coins");
 
         javax.swing.GroupLayout EventosTabLayout = new javax.swing.GroupLayout(EventosTab);
         EventosTab.setLayout(EventosTabLayout);
@@ -112,15 +123,19 @@ public class MainView extends javax.swing.JFrame {
                                 .addGroup(EventosTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(CriarEventoButton)
                                     .addGroup(EventosTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                        .addComponent(criarApostaButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                                         .addComponent(InfoEvento, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
                     .addGroup(EventosTabLayout.createSequentialGroup()
                         .addGap(24, 24, 24)
                         .addGroup(EventosTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(Utilizador, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
-                            .addComponent(Coins, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addGroup(EventosTabLayout.createSequentialGroup()
+                                .addComponent(Coins, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel1)
+                                .addGap(3, 3, 3)))))
                 .addGap(29, 29, 29)
-                .addComponent(eventosScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 526, Short.MAX_VALUE)
+                .addComponent(eventosScroll, javax.swing.GroupLayout.DEFAULT_SIZE, 535, Short.MAX_VALUE)
                 .addContainerGap())
         );
         EventosTabLayout.setVerticalGroup(
@@ -133,17 +148,20 @@ public class MainView extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, EventosTabLayout.createSequentialGroup()
                         .addGap(20, 20, 20)
                         .addComponent(BemVindo)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(Utilizador, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(27, 27, 27)
-                        .addComponent(Coins, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(46, 46, 46)
-                        .addComponent(CriarEventoButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(InfoEvento)))
-                .addContainerGap(91, Short.MAX_VALUE))
+                        .addGroup(EventosTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(EventosTabLayout.createSequentialGroup()
+                                .addComponent(Coins, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(46, 46, 46)
+                                .addComponent(CriarEventoButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(criarApostaButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(InfoEvento))
+                            .addComponent(jLabel1))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         DadosUtilizador.addTab("Eventos", EventosTab);
@@ -167,6 +185,10 @@ public class MainView extends javax.swing.JFrame {
 
         ValorButton.setText("Fazer Transacção");
 
+        jScrollPane1.setViewportView(NotificaçõesScroll);
+
+        jLabel2.setText("Notificações:");
+
         javax.swing.GroupLayout UtilizadorTabLayout = new javax.swing.GroupLayout(UtilizadorTab);
         UtilizadorTab.setLayout(UtilizadorTabLayout);
         UtilizadorTabLayout.setHorizontalGroup(
@@ -177,14 +199,6 @@ public class MainView extends javax.swing.JFrame {
                         .addGap(67, 67, 67)
                         .addGroup(UtilizadorTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(UtilizadorTabLayout.createSequentialGroup()
-                                .addComponent(Valor)
-                                .addGap(18, 18, 18)
-                                .addComponent(ValorText, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(UtilizadorTabLayout.createSequentialGroup()
-                                .addComponent(Deposito)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(Levantamento))
-                            .addGroup(UtilizadorTabLayout.createSequentialGroup()
                                 .addGroup(UtilizadorTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(Nome)
                                     .addComponent(Email)
@@ -193,39 +207,62 @@ public class MainView extends javax.swing.JFrame {
                                 .addGroup(UtilizadorTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(Coins1, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(NomeText, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(EmailText, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(EmailText, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(UtilizadorTabLayout.createSequentialGroup()
+                                .addComponent(Deposito)
+                                .addGap(18, 18, 18)
+                                .addComponent(Levantamento))
+                            .addGroup(UtilizadorTabLayout.createSequentialGroup()
+                                .addComponent(Valor)
+                                .addGap(18, 18, 18)
+                                .addComponent(ValorText, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(UtilizadorTabLayout.createSequentialGroup()
+                        .addGap(98, 98, 98)
+                        .addComponent(ValorButton, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(UtilizadorTabLayout.createSequentialGroup()
                         .addGap(79, 79, 79)
-                        .addComponent(ValorButton, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(380, 380, 380))
+                        .addComponent(ErroMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(83, 83, 83)
+                .addGroup(UtilizadorTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(37, 37, 37))
         );
         UtilizadorTabLayout.setVerticalGroup(
             UtilizadorTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(UtilizadorTabLayout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addGroup(UtilizadorTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(UtilizadorTabLayout.createSequentialGroup()
-                        .addGroup(UtilizadorTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(NomeText, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Nome))
-                        .addGap(18, 18, 18)
-                        .addComponent(Email))
-                    .addComponent(EmailText, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(43, 43, 43)
+                .addGap(44, 44, 44)
                 .addGroup(UtilizadorTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(CoinText)
-                    .addComponent(Coins1, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(84, 84, 84)
-                .addGroup(UtilizadorTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Deposito)
-                    .addComponent(Levantamento))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(UtilizadorTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ValorText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Valor))
-                .addGap(18, 18, 18)
-                .addComponent(ValorButton)
-                .addContainerGap(162, Short.MAX_VALUE))
+                    .addGroup(UtilizadorTabLayout.createSequentialGroup()
+                        .addGroup(UtilizadorTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(UtilizadorTabLayout.createSequentialGroup()
+                                .addGroup(UtilizadorTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(NomeText, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Nome))
+                                .addGap(18, 18, 18)
+                                .addComponent(Email))
+                            .addComponent(EmailText, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(UtilizadorTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(CoinText, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Coins1, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(64, 64, 64)
+                        .addGroup(UtilizadorTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Deposito)
+                            .addComponent(Levantamento))
+                        .addGap(18, 18, 18)
+                        .addGroup(UtilizadorTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Valor)
+                            .addComponent(ValorText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(35, 35, 35)
+                        .addComponent(ValorButton)
+                        .addGap(53, 53, 53)
+                        .addComponent(ErroMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(UtilizadorTabLayout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         DadosUtilizador.addTab("DadosApostador", UtilizadorTab);
@@ -293,6 +330,10 @@ public class MainView extends javax.swing.JFrame {
                 InfoEvento.addActionListener(listenforEventoButton);
     }
     
+    public void addCriarApostaListener(ActionListener listenForApostaButton){
+                criarApostaButton.addActionListener(listenForApostaButton);
+    }
+    
     public void setUtilizadorText(String text){Utilizador.setText(text);}
     public void setEmailText(String text){EmailText.setText(text);}          
     public void setNomeText(String text){NomeText.setText(text);}
@@ -302,16 +343,17 @@ public class MainView extends javax.swing.JFrame {
     }
     
     public String getEvento(){
- 
        int selectedRowIndex = TableTexto.getSelectedRow();
        int selectedColumnIndex = TableTexto.getSelectedColumn();
        String selectedObject = (String) TableTexto.getModel().getValueAt(selectedRowIndex, selectedColumnIndex);
        return selectedObject;
     }
     
-    
+    public void setErro(String text){ ErroMessage.setText(text);}
     public String getValor(){return ValorText.getText();}
     public String getEscolha(){return group.getSelection().getActionCommand();}
+    public void OffApostador(){ this.DadosUtilizador.remove(UtilizadorTab);}
+    public void OnApostador(){ this.DadosUtilizador.add("Dados Apostador", UtilizadorTab);}
     
     public void setTable(HashMap<Integer,Evento> eventos){
         
@@ -323,8 +365,7 @@ public class MainView extends javax.swing.JFrame {
             float odd2 = eventos.get(i).getOdds().getOdd2();          
             model.addRow(new String[]{String.valueOf(i),eventos.get(i).getEquipa1(),String.valueOf(odd1),String.valueOf(oddx),eventos.get(i).getEquipa2(),String.valueOf(odd2),String.valueOf(eventos.get(i).isOpen())});   
         }
-        model.fireTableDataChanged();
-        
+        model.fireTableDataChanged();       
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -337,19 +378,24 @@ public class MainView extends javax.swing.JFrame {
     private javax.swing.JRadioButton Deposito;
     private javax.swing.JLabel Email;
     private javax.swing.JLabel EmailText;
+    private javax.swing.JLabel ErroMessage;
     private javax.swing.JPanel EventosTab;
     private javax.swing.JButton InfoEvento;
     private javax.swing.JRadioButton Levantamento;
     private javax.swing.JLabel Nome;
     private javax.swing.JLabel NomeText;
+    private javax.swing.JList NotificaçõesScroll;
     private javax.swing.JTable TableTexto;
     private javax.swing.JLabel Utilizador;
     private javax.swing.JPanel UtilizadorTab;
     private javax.swing.JLabel Valor;
     private javax.swing.JButton ValorButton;
     private javax.swing.JTextField ValorText;
+    private javax.swing.JButton criarApostaButton;
     private javax.swing.JScrollPane eventosScroll;
     private javax.swing.ButtonGroup group;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

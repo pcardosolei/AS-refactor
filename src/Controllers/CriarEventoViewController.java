@@ -1,23 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Controllers;
 
 import Views.CriarEventoView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-/**
- *
- * @author PauloCardoso
- */
 public class CriarEventoViewController  {
     
-    private CriarEventoView view;
-    private EventoController eventosController;
-    private MainViewController mainView;
+    private final CriarEventoView view;
+    private final EventoController eventosController;
+    private final MainViewController mainView;
     
     public CriarEventoViewController(CriarEventoView  view,EventoController eventosController,MainViewController main){
         
@@ -33,8 +25,7 @@ public class CriarEventoViewController  {
         @Override 
         public void actionPerformed(ActionEvent e) {
             String equipa1,equipa2;
-            float oddEquipa1,oddEmpate,oddEquipa2;
-        
+            float oddEquipa1,oddEmpate,oddEquipa2;    
             try{
                 equipa1 = view.getEquipa1();
                 equipa2 = view.getEquipa2();

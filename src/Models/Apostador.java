@@ -1,8 +1,7 @@
 package Models;
 
-import Observer.Observer;
 
-public class Apostador extends Utilizador implements Observer{
+public class Apostador extends Utilizador{
         
 	private double betESScoins;
         
@@ -14,12 +13,4 @@ public class Apostador extends Utilizador implements Observer{
 	public double getBetESScoins() {return betESScoins;}
 	public void setBetESScoins(double betESScoins) {this.betESScoins = betESScoins;}
         
-        //DEIXAR ESTAR PARA Já - estudar isto
-	@Override
-	public void update(String notificacao) {
-
-
-		System.out.println("\nApostador(" + super.getName() + "):" + notificacao + "\n");
-	}    
-    
 }

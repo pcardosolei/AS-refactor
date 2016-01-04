@@ -1,22 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Controllers;
 
+import Exception.ErroException;
 import Models.LoginInfo;
 import Views.LoginView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-/**
- *
- * @author Portatilcar
- */
 public class LoginViewController {
     
-    private LoginInfo loginInfo;
+    private final LoginInfo loginInfo;
     private LoginView view;
     private ApostadorController apostadoresController;
     private BookieController bookiesController;
@@ -45,12 +37,11 @@ public class LoginViewController {
                 nome = view.getUsername();
                 password = view.getPassword();
                 escolha = view.getEscolha();
-                email = view.getEmail();
+                email = view.getEmail();       
                 confirmarUser(nome,password,escolha);
+                }catch(NullPointerException a){
+                   view.setNotificacao("Introduza campos válidos");
                 }
-            catch(NullPointerException a){
-                System.out.println("erro confirmar user");
-            }
         }
     }
     
@@ -66,9 +57,8 @@ public class LoginViewController {
                 escolha = view.getEscolha();
                 email = view.getEmail();
                 adicionarUser(nome,password,escolha,email);
-                }
-            catch(NullPointerException a){
-                System.out.println("ERRO");
+                }catch(NullPointerException a){
+                   view.setNotificacao("Introduza campos válidos");
             }
         }
     }
@@ -81,16 +71,22 @@ public class LoginViewController {
     }
     
     public void confirmarUser(String nome,String password,String escolha){
+        try{
         boolean flag;
         if(escolha.equals("Apostador"))
             flag = apostadoresController.confirmaApostador(nome,password);
         else
             flag = bookiesController.confirmaBookie(nome,password);
-        if(flag){
+        if(flag){        
             loginInfo.setName(nome);
             loginInfo.setTipo(escolha);
             mainController.updateVista();
             view.dispose();
         }
+        }catch(ErroException b){
+            view.setNotificacao(b.getMessage());
+        }
     }
 }
+   
+

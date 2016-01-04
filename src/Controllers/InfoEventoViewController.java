@@ -1,18 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Controllers;
 
 import Views.InfoEventoView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-/**
- *
- * @author PauloCardoso
- */
 public final class InfoEventoViewController {
     
     private EventoController eventoControl;
@@ -44,8 +35,8 @@ public final class InfoEventoViewController {
     class DeleteListener implements ActionListener {
 
         @Override
-        public void actionPerformed(ActionEvent e) {
-                eventoControl.deleteEvento(evento);
+        public void actionPerformed(ActionEvent e) {               
+                eventoControl.deleteEvento(evento);           
                 main.updateTable();
                 view.dispose();
         }
@@ -56,7 +47,12 @@ public final class InfoEventoViewController {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-              
+              float odd1 = view.getOdd1();
+              float oddx = view.getOddx();
+              float odd2 = view.getOdd2();
+              eventoControl.editaEvento(evento,odd1,oddx,odd2);
+              main.updateTable();
+              view.dispose();
         }
         
         
@@ -66,7 +62,6 @@ public final class InfoEventoViewController {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            System.out.println(view.getEscolha());
             char c = view.getEscolha().charAt(0);
             eventoControl.fechaEvento(evento,c);
             main.updateTable();

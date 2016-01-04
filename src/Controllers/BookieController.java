@@ -8,10 +8,7 @@ package Controllers;
 import Models.Bookie;
 import java.util.HashMap;
 
-/**
- *
- * @author Portatilcar
- */
+
 public class BookieController {
      private HashMap<String,Bookie> bookies;
      
@@ -24,9 +21,7 @@ public class BookieController {
         this.bookies.put(name,bookie);
      }
     
-      public void deleteBookie(String bookie){
-        this.bookies.remove(bookie);
-    }
+    public void deleteBookie(String bookie){this.bookies.remove(bookie);}
       
     public boolean confirmaBookie(String nome,String password){
         boolean flag = false;

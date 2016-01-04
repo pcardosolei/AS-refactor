@@ -5,6 +5,8 @@
  */
 package Views;
 
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author PauloCardoso
@@ -27,22 +29,129 @@ public class CriarApostaView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Escolha = new javax.swing.ButtonGroup();
+        ValorText = new javax.swing.JTextField();
+        EmpateButton = new javax.swing.JRadioButton();
+        Equipa2Button = new javax.swing.JRadioButton();
+        Equipa1Button = new javax.swing.JRadioButton();
+        RegistoButton = new javax.swing.JButton();
+        ValorLabel = new javax.swing.JLabel();
+        Equipa1Label = new javax.swing.JLabel();
+        EmpateLabel = new javax.swing.JLabel();
+        Equipa2Label = new javax.swing.JLabel();
+        OddEquipa1 = new javax.swing.JLabel();
+        OddEmpate = new javax.swing.JLabel();
+        OddEquipa2 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        Escolha.add(EmpateButton);
+        EmpateButton.setText("Empate");
+        EmpateButton.setActionCommand("x");
+
+        Escolha.add(Equipa2Button);
+        Equipa2Button.setText("Equipa2");
+        Equipa2Button.setActionCommand("2a");
+
+        Escolha.add(Equipa1Button);
+        Equipa1Button.setText("Equipa1");
+        Equipa1Button.setActionCommand("1a");
+
+        RegistoButton.setText("RegistarAposta");
+
+        ValorLabel.setText("Valor :");
+
+        EmpateLabel.setText("Empate");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 345, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(ValorLabel)
+                        .addGap(18, 18, 18)
+                        .addComponent(ValorText, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(120, 120, 120))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(OddEquipa1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(35, 35, 35)
+                                .addComponent(OddEmpate, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addGap(10, 10, 10)
+                                        .addComponent(Equipa1Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(Equipa1Button))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addComponent(EmpateButton))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addGap(36, 36, 36)
+                                        .addComponent(EmpateLabel)
+                                        .addGap(14, 14, 14)))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(Equipa2Button, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(Equipa2Label, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(OddEquipa2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(36, 36, 36))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(RegistoButton)
+                .addGap(110, 110, 110))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 174, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(65, 65, 65)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(EmpateLabel)
+                    .addComponent(Equipa1Label, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Equipa2Label, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(OddEquipa2, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(OddEmpate, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(OddEquipa1, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Equipa2Button)
+                    .addComponent(EmpateButton)
+                    .addComponent(Equipa1Button))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ValorText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ValorLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(RegistoButton)
+                .addGap(19, 19, 19))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    public void setEquipa1(String text){ Equipa1Label.setText(text);}
+    public void setEquipa2(String text){ Equipa2Label.setText(text);}
+    
+    public void setOddEquipa1(float text){ OddEquipa1.setText(String.valueOf(text));}
+    public void setOddEmpate(float text){ OddEmpate.setText(String.valueOf(text));}
+    public void setOddEquipa2(float text){ OddEquipa2.setText(String.valueOf(text));}
+    
+    public double getValor(){return Float.parseFloat(ValorText.getText());}
+    public String getEscolha(){return Escolha.getSelection().getActionCommand();}
+    
+    public void addRegistoListener(ActionListener listenforRegistoButton){
+                RegistoButton.addActionListener(listenforRegistoButton);}
     /**
      * @param args the command line arguments
      */
@@ -79,5 +188,18 @@ public class CriarApostaView extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButton EmpateButton;
+    private javax.swing.JLabel EmpateLabel;
+    private javax.swing.JRadioButton Equipa1Button;
+    private javax.swing.JLabel Equipa1Label;
+    private javax.swing.JRadioButton Equipa2Button;
+    private javax.swing.JLabel Equipa2Label;
+    private javax.swing.ButtonGroup Escolha;
+    private javax.swing.JLabel OddEmpate;
+    private javax.swing.JLabel OddEquipa1;
+    private javax.swing.JLabel OddEquipa2;
+    private javax.swing.JButton RegistoButton;
+    private javax.swing.JLabel ValorLabel;
+    private javax.swing.JTextField ValorText;
     // End of variables declaration//GEN-END:variables
 }

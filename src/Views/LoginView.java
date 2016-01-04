@@ -39,6 +39,7 @@ public class LoginView extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         EmailText = new javax.swing.JTextField();
+        NotificacaoText = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -82,11 +83,15 @@ public class LoginView extends javax.swing.JFrame {
                             .addComponent(PasswordText)
                             .addComponent(EmailText))))
                 .addGap(56, 56, 56))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(66, 66, 66)
+                .addComponent(NotificacaoText, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(22, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(UsernameText, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
@@ -104,26 +109,18 @@ public class LoginView extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RegistoButton)
                     .addComponent(LoginButton))
-                .addGap(82, 82, 82))
+                .addGap(18, 18, 18)
+                .addComponent(NotificacaoText, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
-     public String getPassword(){
-        return PasswordText.getText();
-    }
-    
-    public String getUsername(){
-        return UsernameText.getText();
-    }
-    
-    public String getEscolha(){
-        return EscolhaBox.getSelectedItem().toString();
-    }
-    public String getEmail(){
-        return EmailText.getText();
-    }
+     public String getPassword(){return PasswordText.getText();}
+    public String getUsername(){return UsernameText.getText();}   
+    public String getEscolha(){return EscolhaBox.getSelectedItem().toString();}
+    public String getEmail(){return EmailText.getText();}
     
     public void addRegistoListener(ActionListener listenForRegistoButton){
 	        RegistoButton.addActionListener(listenForRegistoButton);	         
@@ -133,6 +130,9 @@ public class LoginView extends javax.swing.JFrame {
                 LoginButton.addActionListener(listenForLoginButton);
     }
     
+    public void setNotificacao(String text){
+        NotificacaoText.setText(text);
+    }
     /**
      * @param args the command line arguments
      */
@@ -174,6 +174,7 @@ public class LoginView extends javax.swing.JFrame {
     private javax.swing.JTextField EmailText;
     private javax.swing.JComboBox EscolhaBox;
     private javax.swing.JButton LoginButton;
+    private javax.swing.JLabel NotificacaoText;
     private javax.swing.JTextField PasswordText;
     private javax.swing.JButton RegistoButton;
     private javax.swing.JTextField UsernameText;
