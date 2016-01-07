@@ -3,32 +3,30 @@ package Controllers;
 import Models.Evento;
 import Models.Odd;
 import Models.Resultado;
-import Observer.Subject;
+import Observer.*;
 import java.util.HashMap;
 import java.time.Instant;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class EventoController implements Subject {
     
     private HashMap<Integer,Evento> eventos;
+    private ArrayList<Observer> observers;
     
-    public EventoController(ApostadorController apostadorControl){
+    public EventoController(){
         this.eventos = new HashMap<>();
+        this.observers = new ArrayList<>();
     }
     
     
     public void addEvento(String equipa1,String equipa2,float oddEquipa1,float empate, float oddEquipa2){
         OddController odds = new OddController(new Odd(oddEquipa1,empate,oddEquipa2));
         Evento evento = new Evento(equipa1,equipa2,Date.from(Instant.now()),odds);
-        this.eventos.put(eventos.size(),evento);
-        
+        this.eventos.put(eventos.size(),evento);       
     }
    
-    public void deleteEvento(int evento){
-        this.eventos.remove(evento);
-    }
-    
-    
+    public void deleteEvento(int evento){this.eventos.remove(evento);}
    
     public OddController getOdds(int evento){return this.eventos.get(evento).getOdds();}
     public String getEquipa1(int evento){return this.eventos.get(evento).getEquipa1();}
@@ -49,7 +47,7 @@ public class EventoController implements Subject {
     public void fechaEvento(int evento,char resultadofinal){
                registaResultado(evento,resultadofinal);
                eventos.get(evento).setOpen(false);
-		//this.notifyApostadores();
+               this.notifyApostadores(evento);
 	}
     
     private void registaResultado(int evento,char resultadofinal){
@@ -119,7 +117,14 @@ public class EventoController implements Subject {
 */
 
     @Override
-    public void notifyApostadores() {
-            
+    public void notifyApostadores(int evento) {
+        for(Observer o: observers){
+            o.update(this.eventos.get(evento).getApostaController(),this.eventos.get(evento).getResultado());    
+        }
+    }
+
+    @Override
+    public void register(Observer o) {
+        this.observers.add(o);
     }
 }

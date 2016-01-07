@@ -65,6 +65,8 @@ public final class InfoEventoViewController {
             char c = view.getEscolha().charAt(0);
             eventoControl.fechaEvento(evento,c);
             main.updateTable();
+            main.updateVista();
+            main.updateNotificacoes();
             view.dispose();
         }
         

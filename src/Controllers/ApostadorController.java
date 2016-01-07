@@ -7,8 +7,12 @@ package Controllers;
 
 import Exception.ErroException;
 import Exception.SemSaldoException;
+import Models.Aposta;
 import Models.Apostador;
+import Models.Notificacao;
+import Models.Resultado;
 import Observer.Observer;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -30,6 +34,9 @@ public class ApostadorController implements Observer {
     public double getCoins(String apostador){ return apostadores.get(apostador).getBetESScoins();}
     public String getName(String apostador){return apostadores.get(apostador).getName();}
     public String getEmail(String apostador){return apostadores.get(apostador).getEmail();}
+    public ArrayList<Notificacao> getNotificacoes(String apostador){
+        return apostadores.get(apostador).getNotificacoes().getNotificacoes();
+        }
     
     public void setCoins(String apostador,double coins){apostadores.get(apostador).setBetESScoins(coins);}
     public void setName(String apostador,String nome){apostadores.get(apostador).setName(nome);}
@@ -39,6 +46,14 @@ public class ApostadorController implements Observer {
         Apostador apostador = new Apostador(name,email,password);    
         this.apostadores.put(name,apostador);
 	}
+    
+    public void checkAposta(String nome, double valor) throws SemSaldoException{
+        if(apostadores.get(nome).getBetESScoins() >= valor){
+          apostadores.get(nome).setBetESScoins(apostadores.get(nome).getBetESScoins()-valor); 
+          mainController.updateVista();
+        }else{
+            throw new SemSaldoException();}
+        }
     
     public void deleteApostador(String apostador){this.apostadores.remove(apostador);}
     
@@ -69,8 +84,22 @@ public class ApostadorController implements Observer {
         }
 
     @Override
-    public void update(String notificacao) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    }
+    public void update(ApostaController apostaControl, Resultado resultado) {
+            double valor = 0;
+            HashMap<Integer,Aposta> apostas = apostaControl.getApostas(); 
+            for(Aposta a: apostas.values()){
+                String name = a.getApostador();
+                if(a.getResultado().equals(resultado)){
+                    valor = a.getM_aposta()*a.getOdd_fixada();  
+                    apostadores.get(name).setBetESScoins(apostadores.get(name).getBetESScoins()+valor);
+                }
+                addNotificacao(name,valor);
+            }
+        }
+ 
 
+    private void addNotificacao(String apostador,double valor){
+        String notificacao = "Ganhou na sua aposta: " + valor;
+        this.apostadores.get(apostador).getNotificacoes().addNotificacao(notificacao);
+    }   
+}

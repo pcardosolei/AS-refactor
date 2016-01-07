@@ -6,6 +6,7 @@
 package Controllers;
 
 import Models.Aposta;
+import Models.Apostador;
 import Models.Resultado;
 import java.util.HashMap;
 
@@ -25,6 +26,7 @@ public class ApostaController {
 	public Resultado getResultado(int a) {return listaApostas.get(a).getResultado();}
 	public double getM_aposta(int a) {return listaApostas.get(a).getM_aposta();}
 	public float getOdd_fixada(int a) {return listaApostas.get(a).getOdd_fixada();}
+        public String getApostador(int a){return listaApostas.get(a).getApostador();}
         
         public void setApostador(int a,String apostador){this.listaApostas.get(a).setApostador(apostador);}
         public void setResultado(int a,char resultado){this.listaApostas.get(a).setResultado(resultado);}

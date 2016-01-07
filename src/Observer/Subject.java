@@ -2,6 +2,7 @@ package Observer;
 
 public interface Subject {
 
-	void notifyApostadores();
+	void notifyApostadores(int evento);
+        void register(Observer o);
 
 }

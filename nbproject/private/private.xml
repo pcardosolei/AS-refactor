@@ -9,11 +9,11 @@
             <file>file:/Users/PauloCardoso/NetBeansProjects/AS-refactor/src/Controllers/LoginViewController.java</file>
             <file>file:/Users/PauloCardoso/NetBeansProjects/AS-refactor/src/main/BetESSAPI.java</file>
             <file>file:/Users/PauloCardoso/NetBeansProjects/AS-refactor/src/Controllers/BookieController.java</file>
-            <file>file:/Users/PauloCardoso/NetBeansProjects/AS-refactor/src/Exception/ErroException.java</file>
+            <file>file:/Users/PauloCardoso/NetBeansProjects/AS-refactor/src/Models/Aposta.java</file>
             <file>file:/Users/PauloCardoso/NetBeansProjects/AS-refactor/src/Controllers/CriarApostaViewController.java</file>
             <file>file:/Users/PauloCardoso/NetBeansProjects/AS-refactor/src/Controllers/MainViewController.java</file>
-            <file>file:/Users/PauloCardoso/NetBeansProjects/AS-refactor/src/Exception/SemSaldoException.java</file>
             <file>file:/Users/PauloCardoso/NetBeansProjects/AS-refactor/src/Models/Bookie.java</file>
+            <file>file:/Users/PauloCardoso/NetBeansProjects/AS-refactor/src/Views/CriarApostaView.java</file>
             <file>file:/Users/PauloCardoso/NetBeansProjects/AS-refactor/src/Controllers/ApostaController.java</file>
             <file>file:/Users/PauloCardoso/NetBeansProjects/AS-refactor/src/Views/MainView.java</file>
             <file>file:/Users/PauloCardoso/NetBeansProjects/AS-refactor/src/Controllers/CriarEventoViewController.java</file>
@@ -22,7 +22,7 @@
             <file>file:/Users/PauloCardoso/NetBeansProjects/AS-refactor/src/Models/Apostador.java</file>
             <file>file:/Users/PauloCardoso/NetBeansProjects/AS-refactor/src/Controllers/ApostadorController.java</file>
             <file>file:/Users/PauloCardoso/NetBeansProjects/AS-refactor/src/Models/Utilizador.java</file>
-            <file>file:/Users/PauloCardoso/NetBeansProjects/AS-refactor/src/Views/LoginView.java</file>
+            <file>file:/Users/PauloCardoso/NetBeansProjects/AS-refactor/src/Observer/Subject.java</file>
         </group>
     </open-files>
 </project-private>

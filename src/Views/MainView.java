@@ -6,7 +6,9 @@
 package Views;
 
 import Models.Evento;
+import Models.Notificacao;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.HashMap;
 import javax.swing.table.DefaultTableModel;
 
@@ -57,9 +59,14 @@ public class MainView extends javax.swing.JFrame {
         Valor = new javax.swing.JLabel();
         ValorButton = new javax.swing.JButton();
         ErroMessage = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        NotificaçõesScroll = new javax.swing.JList();
         jLabel2 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        NotificacaoTable = new javax.swing.JTable();
+        BookieTab = new javax.swing.JPanel();
+        Nome1 = new javax.swing.JLabel();
+        NomeText1 = new javax.swing.JLabel();
+        Email1 = new javax.swing.JLabel();
+        EmailText1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -185,9 +192,38 @@ public class MainView extends javax.swing.JFrame {
 
         ValorButton.setText("Fazer Transacção");
 
-        jScrollPane1.setViewportView(NotificaçõesScroll);
-
         jLabel2.setText("Notificações:");
+
+        NotificacaoTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "Notificacao", "Data"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                true, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(NotificacaoTable);
+        if (NotificacaoTable.getColumnModel().getColumnCount() > 0) {
+            NotificacaoTable.getColumnModel().getColumn(1).setResizable(false);
+        }
 
         javax.swing.GroupLayout UtilizadorTabLayout = new javax.swing.GroupLayout(UtilizadorTab);
         UtilizadorTab.setLayout(UtilizadorTabLayout);
@@ -222,11 +258,15 @@ public class MainView extends javax.swing.JFrame {
                     .addGroup(UtilizadorTabLayout.createSequentialGroup()
                         .addGap(79, 79, 79)
                         .addComponent(ErroMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(83, 83, 83)
                 .addGroup(UtilizadorTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37))
+                    .addGroup(UtilizadorTabLayout.createSequentialGroup()
+                        .addGap(83, 83, 83)
+                        .addComponent(jLabel2)
+                        .addGap(223, 223, 223))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, UtilizadorTabLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(49, 49, 49))))
         );
         UtilizadorTabLayout.setVerticalGroup(
             UtilizadorTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -261,11 +301,47 @@ public class MainView extends javax.swing.JFrame {
                     .addGroup(UtilizadorTabLayout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(33, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
 
         DadosUtilizador.addTab("DadosApostador", UtilizadorTab);
+
+        Nome1.setText("Nome:");
+
+        Email1.setText("Email:");
+
+        javax.swing.GroupLayout BookieTabLayout = new javax.swing.GroupLayout(BookieTab);
+        BookieTab.setLayout(BookieTabLayout);
+        BookieTabLayout.setHorizontalGroup(
+            BookieTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BookieTabLayout.createSequentialGroup()
+                .addGap(94, 94, 94)
+                .addGroup(BookieTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Nome1)
+                    .addComponent(Email1))
+                .addGap(18, 18, 18)
+                .addGroup(BookieTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(NomeText1, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(EmailText1, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(362, Short.MAX_VALUE))
+        );
+        BookieTabLayout.setVerticalGroup(
+            BookieTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BookieTabLayout.createSequentialGroup()
+                .addGap(65, 65, 65)
+                .addGroup(BookieTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(BookieTabLayout.createSequentialGroup()
+                        .addGroup(BookieTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(NomeText1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Nome1))
+                        .addGap(18, 18, 18)
+                        .addComponent(Email1))
+                    .addComponent(EmailText1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(398, Short.MAX_VALUE))
+        );
+
+        DadosUtilizador.addTab("DadosBookie", BookieTab);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -275,7 +351,7 @@ public class MainView extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(DadosUtilizador)
+            .addComponent(DadosUtilizador, javax.swing.GroupLayout.DEFAULT_SIZE, 559, Short.MAX_VALUE)
         );
 
         DadosUtilizador.getAccessibleContext().setAccessibleName("Eventos");
@@ -342,11 +418,9 @@ public class MainView extends javax.swing.JFrame {
         Coins1.setText(String.valueOf(text));
     }
     
-    public String getEvento(){
+    public int getEvento(){
        int selectedRowIndex = TableTexto.getSelectedRow();
-       int selectedColumnIndex = TableTexto.getSelectedColumn();
-       String selectedObject = (String) TableTexto.getModel().getValueAt(selectedRowIndex, selectedColumnIndex);
-       return selectedObject;
+       return selectedRowIndex;
     }
     
     public void setErro(String text){ ErroMessage.setText(text);}
@@ -354,6 +428,8 @@ public class MainView extends javax.swing.JFrame {
     public String getEscolha(){return group.getSelection().getActionCommand();}
     public void OffApostador(){ this.DadosUtilizador.remove(UtilizadorTab);}
     public void OnApostador(){ this.DadosUtilizador.add("Dados Apostador", UtilizadorTab);}
+    public void OffBookie(){ this.DadosUtilizador.remove(BookieTab);}
+    public void OnBookie(){ this.DadosUtilizador.add("Dados Bookie",BookieTab);}
     
     public void setTable(HashMap<Integer,Evento> eventos){
         
@@ -368,8 +444,20 @@ public class MainView extends javax.swing.JFrame {
         model.fireTableDataChanged();       
     }
     
+    public void setTableNotif(ArrayList<Notificacao> notificacoes){
+        DefaultTableModel model = (DefaultTableModel) NotificacaoTable.getModel();
+        model.setRowCount(0);
+        for(Notificacao a: notificacoes){
+            String notific = a.getNotif();
+            String data = ""+a.getDate();
+            model.addRow(new String[]{notific,data});
+        }
+        model.fireTableDataChanged();
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel BemVindo;
+    private javax.swing.JPanel BookieTab;
     private javax.swing.JLabel CoinText;
     private javax.swing.JLabel Coins;
     private javax.swing.JLabel Coins1;
@@ -377,14 +465,18 @@ public class MainView extends javax.swing.JFrame {
     private javax.swing.JTabbedPane DadosUtilizador;
     private javax.swing.JRadioButton Deposito;
     private javax.swing.JLabel Email;
+    private javax.swing.JLabel Email1;
     private javax.swing.JLabel EmailText;
+    private javax.swing.JLabel EmailText1;
     private javax.swing.JLabel ErroMessage;
     private javax.swing.JPanel EventosTab;
     private javax.swing.JButton InfoEvento;
     private javax.swing.JRadioButton Levantamento;
     private javax.swing.JLabel Nome;
+    private javax.swing.JLabel Nome1;
     private javax.swing.JLabel NomeText;
-    private javax.swing.JList NotificaçõesScroll;
+    private javax.swing.JLabel NomeText1;
+    private javax.swing.JTable NotificacaoTable;
     private javax.swing.JTable TableTexto;
     private javax.swing.JLabel Utilizador;
     private javax.swing.JPanel UtilizadorTab;

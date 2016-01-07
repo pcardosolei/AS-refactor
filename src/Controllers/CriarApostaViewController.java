@@ -6,6 +6,7 @@
 package Controllers;
 
 
+import Exception.SemSaldoException;
 import Views.CriarApostaView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,14 +19,17 @@ public class CriarApostaViewController {
    
     private CriarApostaView view;
     private EventoController eventosController;
+    private ApostadorController apostadorController;
     private int evento;
     private String apostador;
     
-    public CriarApostaViewController(int evento,EventoController eventosController,CriarApostaView  view,String apostador){
+    public CriarApostaViewController(int evento,EventoController eventosController,CriarApostaView view,String apostador,ApostadorController apostadorController){
          this.view = view;
          this.eventosController = eventosController;
+         this.apostadorController = apostadorController;
          this.view.addRegistoListener(new RegistoListener());
          this.apostador = apostador;
+         this.evento = evento;
          setStats();
     }
     
@@ -42,15 +46,19 @@ public class CriarApostaViewController {
                 }
             catch(Exception a){
                 System.out.println("ERRO adicionar aposta"); 
-            }
+            }       
         }
     }   
     
     
     public void adicionarAposta(int evento,char escolha,double valor){
-        
-        eventosController.registaAposta(evento,apostador,escolha,valor);
-        view.dispose();
+        try{
+            apostadorController.checkAposta(apostador, valor);
+            eventosController.registaAposta(evento,apostador,escolha,valor);
+            view.dispose();
+        }catch(SemSaldoException e){
+            
+        }
     }
     
     public void setStats(){
